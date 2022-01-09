@@ -1,0 +1,26 @@
+def write_student_info(info_list):
+    f=open("student_info.txt","a", newline="\n")
+    if f.tell()==0:
+        f.write("Name Roll No. Phone E-Mail")
+    f.write("\n")
+    f.write(info_list)
+
+condition=True
+while condition:
+    print("Enter the information of student : ")
+    student_info=input()
+    print("Entered information is : ",student_info)
+    student_list=student_info.split(" ")
+    print(student_list)
+    print("Entered information is \nName={}\nRoll No. :{}\nContact NO.={}\nEmail={}".format(student_list[0],student_list[1],student_list[2],student_list[3]))
+    action=input("Is the following information is correct (y/n): ")
+    if action=="y":
+        write_student_info(student_info)
+        choice = input("Do you want to add more student information (y/n): ")
+        if choice=="y":
+            condition=True
+        elif choice=="n":
+            print("Program Exited...")
+            condition=False
+    elif action=="n":
+        print("ReEnter the values..")
